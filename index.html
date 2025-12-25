@@ -1,1 +1,104 @@
-hello world
+<html>
+    <head>
+        <title>Merry Christmas!</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px 20px;
+                line-height: 1.6;
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                min-height: 100vh;
+            }
+            p {
+                margin: 0px 0;
+                color: #333;
+            }
+            ul {
+                background-color: white;
+                padding: 20px 40px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                margin: 20px 0;
+            }
+            li {
+                margin: 10px 0;
+                color: #555;
+            }
+            a {
+                color: #2c5aa0;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .gift-card-container {
+                margin-top: 30px;
+                font-size: 0.9em;
+                color: #666;
+            }
+            .gift-card-input {
+                display: inline-block;
+                padding: 8px 12px;
+                background-color: white;
+                border: 2px solid #2c5aa0;
+                border-radius: 4px;
+                font-family: 'Courier New', monospace;
+                font-size: 0.9em;
+                color: #333;
+                cursor: pointer;
+                user-select: all;
+                margin-left: 5px;
+            }
+            .gift-card-input:hover {
+                background-color: #f0f4ff;
+            }
+            .gift-card-input:active {
+                background-color: #e0e8ff;
+            }
+            .gift-card-input.copied {
+                background-color: #d4edda;
+                border-color: #28a745;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Дорогие Ксюша и Влад,</p>
+        <p>Предлагаю вам сходить на парный массаж.</p>
+        <p>Выберите в <a href="https://booksy.com/pl-pl/169059_lp-studio-zdrowego-ciala_masaz_3_warszawa">LP Studio Zdrowego Ciała</a> одну из этих опций:</p>
+        <ul>
+            <li>Masaż leczniczy całego ciała dla dwojga 90min</li>
+            <li>Masaż relaksacyjny całego ciała dla dwojga 90min</li>
+            <li>Masaż klasyczny całego ciała dla dwojga 90min</li>
+        </ul>
+        <p>Надеюсь, вам понравится!</p>
+        <p>С любовью, Антон</p>
+
+        <div class="gift-card-container">
+        <p>Sąchocka 7, LU1, 02-116, Warszawa, Ochota</p>
+        <p>Karta podarunkowa Booksy: <input type="text" class="gift-card-input" id="giftCardCode" value="BGSB-64ZC-GMEX" readonly> (wazna do 25.12.2026)</p>
+        </div>
+        <script>
+            document.getElementById('giftCardCode').addEventListener('click', async function() {
+                this.select();
+                try {
+                    await navigator.clipboard.writeText(this.value);
+                    this.classList.add('copied');
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                    }, 1000);
+                } catch (err) {
+                    // Fallback for older browsers
+                    this.select();
+                    document.execCommand('copy');
+                    this.classList.add('copied');
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                    }, 1000);
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d ."
   },
   "repository": {
     "type": "git",
@@ -13,8 +14,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
   "bugs": {
     "url": "https://github.com/anton-zotov/xmas-2025/issues"
   },
-  "homepage": "https://github.com/anton-zotov/xmas-2025#readme"
+  "homepage": "https://anton-zotov.github.io/xmas-2025"
 }
